@@ -1,0 +1,530 @@
+/*	Copyright © 2015 Hansoft AB 
+	Distributed under the MIT license, see license text in LICENSE.Malterlib
+*/
+
+@import url("MalterlibDoxygenFonts.css");
+@import url("MalterlibDoxygenHighlighting.css");
+
+div#projectname
+{
+	font-family: Helvetica, sans-serif;
+	font-size: 27px;
+}
+
+div#MSearchBox
+{
+	border: solid gray 1px;
+	border-radius: 11px;
+	height: 21px;
+    margin-top: -11px;
+    margin-right: 9px;
+    background:none;
+}
+
+
+#MSearchBox .left
+{
+    left:0px;
+    background:none;
+}
+
+#MSearchField
+{
+	width: 125px;
+    background:none;
+}
+#MSearchBox .right
+{
+    right: 0px;
+    background:none;
+}
+
+div#MSearchResultsWindow[style]
+{
+    top: 30px !important;
+}
+
+
+div.line 
+{
+	font-family: Unbroken, monospace, fixed;
+	font-size: 10px;
+	min-height: 10px;
+	background: #000000;
+	color: #FFD700;
+	white-space: pre;
+	word-wrap: inherit;
+	text-indent: 0px;
+	padding-left: 0px;
+	padding-right: 10px;
+}
+
+.incorrect div.line 
+, div.fragment.incorrect
+{
+    background: #661111;
+}
+
+span.comment
+{
+	background: #003737;
+	color: #ff9f3b;
+}
+
+span.lineno a
+{
+	background: #555;
+	color: #ddd;
+}
+
+span.lineno
+{
+	border-right: 2px solid #5b5;
+}
+
+span.lineno
+, span.lineno .highlight_number
+{
+	background: #555;
+	color: #ddd;
+}
+
+span.keyword
+{
+	color: #ffffff;
+}
+
+span.keywordtype
+{
+	color: #ff5966;
+}
+
+span.keywordflow
+{
+	color: #ffffff;
+}
+
+span.preprocessor
+{
+	color: #009EFF
+}
+
+span.stringliteral
+{
+	color: #009eff
+}
+
+span.charliteral
+{
+	color: #ff48f0
+}
+
+.code
+{
+	color: inherit;
+}
+
+span.lineno a.line
+, span.lineno a.line:visited
+, span.lineno a.line .highlight_number
+, span.lineno a.line:visited .highlight_number
+{
+    background: #777;
+    border-bottom: 1px solid #606060;
+}
+
+a.line
+, a.line:visited
+{
+	color: inherit;
+    border-bottom: 1px solid #606060;
+}
+
+a.code, a.code:visited
+{
+	color: inherit;
+    border-bottom: 1px solid #606060;
+}
+
+
+a.codeRef
+, a.codeRef:visited
+, a.lineRef
+, a.lineRef:visited
+{
+	color: inherit;
+	border-bottom: 1px solid #606060;	
+}
+
+div.contents {
+    display: inline-block;
+    float: left;
+    clear: both;
+}
+
+pre.fragment 
+{
+	font-family: Unbroken, monospace, fixed;
+	font-size: 10px;
+}
+
+div.fragment
+, pre.fragment 
+{
+	border: 0px;
+    padding: 0px;
+	color: white;
+	background-color: black;
+    display: table;
+	border-collapse: separate;
+	border-spacing: 6px;
+}
+
+div.code_table
+, .code_table table
+{
+	font-family: Unbroken, monospace, fixed;
+	font-size: 10px;
+	min-height: 10px;
+	background: #000000;
+	color: #FFFFFF;
+}
+
+.code_table th
+{
+	text-align: left; 
+}
+
+a.el
+{
+	font-weight: inherit;
+}
+
+.title
+{
+	font-family: Helvetica, Roboto, sans-serif;
+	font-size: 120%;
+}
+
+.tabs, .tabs2, .tabs3
+{
+    background-image: none;
+	background-color: #eee;
+    font-size: 13px;
+    font-family: Helvetica,'Lucida Grande',Geneva,Arial,sans-serif;
+}
+
+
+.tablist a {
+    background-image: none;
+    border-right: 1px solid #000;
+    border-bottom: 1px solid #000;
+/*	border-left: 1px solid #000;*/
+}
+
+.tablist li {
+    background-image: none;
+	background: #ddd;
+}
+
+div#navrow2
+{
+    padding-bottom: 3px;
+}
+
+.tablist a:hover {
+    background-image: none;
+	background: #777;
+}
+
+.tablist li.current a {
+    background-image: none;
+	background: #333;
+
+}
+
+.memTemplParams
+{
+    white-space: inherit;
+    font-family: Unbroken;
+    font-size: 10px;
+    line-height: 10px;
+    padding-top: 5px;
+}
+
+.memTemplItemRight
+, .memItemRight
+{
+    font-family: Unbroken;
+    font-size: 10px;
+    color: black;
+    line-height: 10px;
+    padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+.memTemplItemLeft
+, .memItemLeft
+{
+    font-family: Unbroken;
+    font-size: 10px;
+    color: black;
+    line-height: 10px;
+    padding-top: 5px;
+	padding-bottom: 5px;
+}
+
+td.memItemLeft
+, td.memTemplItemLeft
+{
+	width: 1px;
+}
+
+td.memTemplItemRight
+, td.memItemRight
+{
+    padding-left: 0px;
+    padding-right: 0px;
+}
+
+
+.memname td
+, .memname tr
+{
+	border: 0px;
+	padding: 0px;
+}
+
+a 
+{
+	color: #0077ff;
+}
+
+.contents a:visited 
+{
+	color: #0077ff;
+}
+
+.sourcedef
+, .sourcedef p
+{
+    font-size: 10px;
+}
+
+body, table, div, p, dl {
+	font: 400 14px/18px Helvetica,Roboto,sans-serif;
+}
+
+.sourcedef ul
+{
+	margin-top: 0;
+	margin-bottom: 0;
+}
+
+.memproto, dl.reflist dt 
+{
+	background-image:none;
+}
+
+.mdescRight
+, .mdescLeft
+{
+    font-size: 11px;
+    padding-left: 0px;
+    padding-bottom: 4px;
+    padding-top: 2px;
+	line-height: 100%;
+	color:black;
+	background-color: #f4f4f4;
+}
+
+.memItemLeft, .memItemRight,
+.memTemplItemLeft, .memTemplItemRight, .memTemplParams
+{
+	background-color: #eee;
+}
+
+.dynheader
+{
+	color: #666;
+	font-size: 12px;
+}
+
+.dyncontent
+{
+	margin-top: 5px;
+	margin-bottom: 20px;
+}
+
+.memproto
+, .memproto td
+, .memproto tr
+, dl.reflist dt 
+{
+	font-family: Unbroken;
+	font-weight: normal;
+	font-size: 13px;
+	line-height: 120%;
+}
+.memtemplate
+{
+	line-height: 120%;
+	margin-left: 6px;
+	font-family: Unbroken;
+	font-size: 100%;
+}
+
+p
+{
+	margin-top: 10px;
+	margin-bottom: 10px;
+}
+
+.memdoc, dl.reflist dd 
+{
+	background-image: none;
+    border-top: 1px solid #C0C0C0;      
+    padding-top: 0px;
+}
+
+.memdoc, dl.reflist dd 
+,.memproto, dl.reflist dt
+{
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+.memproto, dl.reflist dt
+{
+	border-top-right-radius: 5px;
+	border-top-left-radius: 5px;
+}
+
+.navpath ul
+{
+    background-image: none;
+    height: 25px;
+    line-height: 25px;
+    color: #ABABAB;
+    background-color: #FAFAFA;
+}
+
+.navpath li
+{
+	height:inherit;
+}
+
+div.header
+, #nav-tree
+{
+	background-image:none;
+}
+
+#MSearchCloseImg
+{
+	content:url("MalterlibDoxygen_CloseSearch.svg");
+	width: 11px;
+	height: 11px;
+	margin-top: 1px;
+}
+
+#MSearchSelect
+{
+    content: url("MalterlibDoxygen_SearchSelector.svg");
+    width: 20px;
+    height: 19px;
+	top: 1px;
+}
+
+#nav-sync
+{
+    content: url("MalterlibDoxygen_TreeViewSyncOff.svg");
+    width: 24px;
+    height: 24px;
+}
+
+#nav-sync.sync
+{
+    content: url("MalterlibDoxygen_TreeViewSyncOn.svg");
+    width: 24px;
+    height: 24px;
+}
+
+.item img[src="ftv2pnode.png"]
+{
+    content: url("MalterlibDoxygen_TreeViewNodeRight.svg");
+    width: 16px;
+    height: 22px;
+}
+
+.item img[src="ftv2mnode.png"]
+, .item img[src="ftv2mlastnode.png"]
+{
+    content: url("MalterlibDoxygen_TreeViewNodeDown.svg");
+    width: 16px;
+    height: 22px;
+}
+
+
+.navpath li
+{
+	background-image:url('MalterlibDoxygen_PathDivider.svg');
+	background-size: 8px 25px;
+}
+
+.ui-resizable-e
+{
+  background:#999;
+  width:4px;
+}
+
+#side-nav
+{
+  padding-right:4px;
+}
+
+#nav-tree .selected
+{
+	background-image: none;
+	background-color: #666;
+	color: #fff;
+	text-shadow: none;
+}
+
+#nav-tree .item
+{
+	height: 16px;
+	line-height: 12px;
+}
+
+#nav-tree .label
+{
+	font: inherit;
+	height: 16px;
+	font-size:12px;
+	line-height: 16px;
+}
+
+#nav-tree
+{
+	font: inherit;
+	height: 16px;
+	font-size:12px;
+	line-height: 16px;
+}
+
+#nav-tree img
+{
+	margin-top:-3px;
+	margin-bottom: -3px;
+}
+
+#nav-tree .label a
+{
+	padding:0px;
+	padding-left:2px;
+}

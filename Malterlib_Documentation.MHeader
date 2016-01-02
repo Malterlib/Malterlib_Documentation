@@ -1,0 +1,214 @@
+// Copyright © 2015 Hansoft AB 
+// Distributed under the MIT license, see license text in LICENSE.Malterlib
+
+%Target "Exe_Malterlib_Documentation"
+{
+	Property
+	{
+		IntermediateDirectoriesFile "@(GeneratedDirectory)Includes.doxygen"
+		DocumentationModule Malterlib
+		MalterlibPostCopyProject MalterlibDocumentation
+	}
+	Target
+	{
+		BaseName "Malterlib_Documentation"
+		FileName "Docs"
+		Type "Executable"
+		LDFlags "--doxygen-root @('../..'->MakeAbsolute()) --doxygen-include @('Source/Malterlib.doxygen'->MakeAbsolute()) --doxygen-tag-include @('Source/MalterlibTag.doxygen'->MakeAbsolute()) @(Target.LDFlags)"
+		{
+			&
+			{
+				GeneratorFamily Xcode
+				Documentation Doxygen
+			}
+		}
+
+		ExtraLinkerFlags "--doxygen-root @('../..'->MakeAbsolute()) --doxygen-include @('Source/Malterlib.doxygen'->MakeAbsolute()) --doxygen-tag-include @('Source/MalterlibTag.doxygen'->MakeAbsolute()) @(Target.LDFlags)"
+		{
+			&
+			{
+				GeneratorFamily VisualStudio
+				Documentation Doxygen
+			}
+		}
+		
+	}
+	
+	%Group "Source"
+	{
+		%File "Source/*"
+		/*
+		%Group "Generated Files"
+		{
+			%GenerateFile "Generate"
+			{
+				Property
+				{
+					Name "@(GeneratedDirectory)GenerateDocumentation@(ScriptExtension)"
+					Contents "#!/bin/bash\n"\
+							"doxygen Generated.doxygen"
+					Executable true
+					UnixLineEnds "@(ScriptUnixLineEnds)"
+					UnicodeBOM "false"
+				}
+			}
+			%GenerateFile "Doxygen"
+			{
+				Property
+				{
+					
+					Name "@(GeneratedDirectory)/Generated.doxygen"
+					Contents	"@@INCLUDE=@('Malterlib.doxygen'->MakeAbsolute())\n"\
+								"OUTPUT_DIRECTORY=@(Target.OutputDirectory)\n"\
+								"INPUT=@('..'->MakeAbsolute())\n"
+					
+					UnixLineEnds "true"
+					UnicodeBOM "false"
+				}
+			}
+		}*/
+	}
+	
+	%Group Resources
+	{
+		%File "Resources/*"
+	}
+	
+	%Group Doxygen
+	{
+		!MalterlibBuildServerBuild true 
+		Compile
+		{
+			!!GeneratorFamily Xcode
+			IndentWidth 2
+			TabWidth 2
+			UsesTabs false
+
+		}
+		Compile
+		{
+			Disabled true
+		}
+		%Group src
+		{
+			%File "/Development/Malterlib/Tools/doxygen/stable/src/^*"
+		}
+	/*	%Group generated_src
+		{
+			%File "/Development/Malterlib/Tools/doxygen/stable/generated_src/^*"
+		}*/
+	}
+	 
+	
+	/*
+	%Group Clang
+	{
+		Compile
+		{
+			!!GeneratorFamily Xcode
+			IndentWidth 2
+			TabWidth 2
+			UsesTabs false
+		}
+		%File "/Development/Malterlib/Tools/llvm/stable/llvm/tools/clang/^*"
+	}
+	 */
+	// /Development/Malterlib/Tools/doxygen/stable/bin/doxygen
+	
+	/*
+	%Dependency Lib_Malterlib
+	/*/
+	%Dependency Lib_Malterlib_Function
+	%Dependency Lib_Malterlib_Iterator
+	%Dependency Lib_Malterlib_Algorithm
+	%Dependency Lib_Malterlib_String
+	%Dependency Lib_Malterlib_Core
+	//*/
+}
+
+
+Target
+{
+	PreBuildScript	"@(Builtin.MToolExe) DiffCopy \"@('Source/*.css'->MakeAbsolute())\" \"@(Target.OutputDirectory)\" \"\" 0\n"\
+					"@(Builtin.MToolExe) DiffCopy \"@('Source/*.html'->MakeAbsolute())\" \"@(Target.OutputDirectory)\" \"\" 0\n"\
+					"@(Builtin.MToolExe) DiffCopy \"@('Source/*.xml'->MakeAbsolute())\" \"@(Target.OutputDirectory)\" \"\" 0\n"\
+					"@(Builtin.MToolExe) DiffCopy \"@('Resources/*.svg'->MakeAbsolute())\" \"@(Target.OutputDirectory)\" \"\" 0\n"\
+					"@(Target.PreBuildScript)"
+	{
+		!!Documentation Doxygen
+	}
+
+}
+
+Property
+{
+	DocumentationModule "Unknown"
+	{
+		!!DocumentationModule ""
+	}
+}
+
+Compile
+{
+	&
+	{
+		CompileDialect C
+		DocumentationEnabled true
+	}
+	
+	DocumentationModule "@(DocumentationModule)"
+}
+Compile
+{
+	&
+	{
+		CompileDialect C
+		DocumentationEnabled true
+		GeneratorFamily Xcode
+	}
+	
+	DocumentationDocSetFeedName "@(DocumentationModule)"
+	DocumentationDocSetPublisherName "@(ProductCompany)"
+	DocumentationDocSetPublisherID "@(ProductCompanyUniqueIdentifier)"
+	DocumentationDocSetBundleID "@(ProductCompanyUniqueIdentifier).@(DocumentationModule->Replace(' ',''))"
+}
+
+%Workspace "Malterlib_Documentation"
+{
+	Workspace.Enabled "true"
+	{
+		!!DocumentationEnabled true
+	}
+	Workspace.Enabled "false"
+	{
+		!DocumentationEnabled true
+	}
+	%Target Exe_Malterlib_Documentation
+}
+
+/*
+%Group "{Malterlib_Documenation}/Tools/Malterlib"
+{
+	%Target Tool_GenerateDocumentation
+}
+
+Workspace
+{
+//	ExtraGroups "{Malterlib_Documenation}/Tools/Malterlib;@(Workspace.ExtraGroups)"
+}
+*/
+/*
+%Group "~Automatic/Dependencies/Tool_GenerateDocumentation"
+{
+	%Dependency "Tool_GenerateDocumentation"
+	{
+		Dependency.Link false
+	}
+}
+
+Target.ExtraGroups "~Automatic/Dependencies/Tool_GenerateDocumentation;@(Target.ExtraGroups)"
+{
+	!!Target:Target.Name "Tool_GenerateBuildSystem"
+}
+
+*/

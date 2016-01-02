@@ -1,0 +1,279 @@
+/*	Copyright © 2015 Hansoft AB 
+	Distributed under the MIT license, see license text in LICENSE.Malterlib
+*/
+
+.highlight_keyword_built_in_type
+, .highlight_keyword_built_in_character_type
+, .highlight_keyword_built_in_integer_type
+, .highlight_keyword_built_in_vector_type
+, .highlight_keyword_built_in_type_modifier
+, .highlight_keyword_built_in_float_type
+{
+	color: #FF5966
+}
+	
+.highlight_number
+{
+	color: #FF0080
+}
+	
+.highlight_template_non_type_param
+, .highlight_template_non_type_param_pack
+{
+	color: #FF5BAD
+}
+	
+.highlight_global_constant
+, .highlight_enumerator
+, .highlight_member_constant_public
+, .highlight_keyword_built_in_constant
+, .highlight_constant_variable
+{
+	color: #FF8AC5
+}
+	
+.highlight_member_constant_private
+{
+	color: #CA97B1
+}
+
+.highlight_function_template_non_type_param
+, .highlight_function_template_non_type_param_pack
+{
+	color: #FFB7DB
+}
+	
+.highlight_character
+{
+	color: #FF48F0
+}
+	
+.highlight_namespace
+{
+	color: #D785FF
+}
+	
+.highlight_template_type_param_class
+, .highlight_template_type_param_class_pack
+, .highlight_template_type_param_function
+, .highlight_template_type_param_function_pack
+, .highlight_template_template_param
+, .highlight_template_template_param_pack
+{
+	color: #8269FF
+}
+	
+.highlight_function_template_type_param_class
+, .highlight_function_template_type_param_class_pack
+, .highlight_function_template_type_param_function
+, .highlight_function_template_type_param_function_pack
+, .highlight_function_template_template_param
+, .highlight_function_template_template_param_pack
+{
+	color: #CDC3FF
+}
+	
+.highlight_type
+, .highlight_type_function
+, .highlight_type_interface
+, .highlight_template_type
+, .highlight_template_type_interface
+, .highlight_typedef
+, .highlight_enum
+{
+	color: #B8AAFF
+}
+	
+.highlight_keyword_auto
+{
+	color: #DBD3FF
+}
+	
+.highlight_string
+{
+	color: #009EFF
+}
+	
+.highlight_function_parameter_functor
+, .highlight_function_parameter_pack_functor
+{
+	color: #00e4e6
+}
+	
+.highlight_function_parameter_output_functor
+, .highlight_function_parameter_output_pack_functor
+{
+	color: #36e8cd
+}
+	
+.highlight_variable_functor
+{
+	color: #00edae
+}
+	
+.highlight_member_variable_public_functor
+{
+	color: #00f265
+}
+	
+.highlight_member_variable_private_functor
+{
+	color: #4fc17e
+}
+	
+.highlight_member_function_public
+, .highlight_member_function_public_recursive
+, .highlight_member_static_function_public
+, .highlight_member_static_function_public_recursive
+{
+	color: #26FF00
+}
+	
+.highlight_function
+, .highlight_function_recursive
+, .highlight_static_function
+, .highlight_static_function_recursive
+{
+	color: #1CB900
+}
+	
+.highlight_member_function_private
+, .highlight_member_function_private_recursive
+, .highlight_member_static_function_private
+, .highlight_member_static_function_private_recursive
+{
+	color: #8DD580
+}
+	
+.highlight_function_parameter
+, .highlight_function_parameter_pack
+{
+	color: #E6FF00
+}
+	
+.highlight_function_parameter_output
+, .highlight_function_parameter_output_pack
+{
+	color: #FFF54B
+}
+	
+.highlight_plain_text
+{
+	color: #FFD700
+}
+	
+.highlight_member_variable_public
+{
+	color: #FFA600
+}
+	
+.highlight_member_variable_private
+{
+	color: #C59D53
+}
+	
+.highlight_macro
+{
+	color: #FF7700
+}
+
+.highlight_macro_parameter
+{
+	color: #FFBC81
+}
+	
+.highlight_member_static_variable_public
+, .highlight_member_static_variable_public_functor
+{
+	color: #FF3F1C
+}
+	
+.highlight_global_variable
+, .highlight_global_variable_functor
+, .highlight_global_static_variable
+, .highlight_global_static_variable_functor
+, .highlight_static_variable
+, .highlight_static_variable_functor
+{
+	color: #E13819
+}
+	
+.highlight_member_static_variable_private
+, .highlight_member_static_variable_private_functor
+{
+	color: #D56955
+}
+	
+.highlight_operator
+, .highlight_preprocessor_operator
+, .highlight_keyword_preprocessor_directive
+{
+	color: #FFFFFF
+}
+	
+.highlight_keyword_property_modifier
+{
+	color: #C0C0C0
+}
+
+.highlight_keyword_typename
+{
+	color: #C0C0C0
+}
+
+.highlight_preprocessor_escape
+{
+	color: #808080
+}
+
+.highlight_keyword_access
+{
+	color: #FFC8CA
+}
+
+.highlight_keyword_qualifier
+{
+	color: #FFB680
+}
+	
+.highlight_documentation_comment
+{
+	color: #9BCDE6
+}
+
+.highlight_documentation_comment_keyword
+{
+	color: #F070B6
+}
+
+.highlight_comment_url
+{
+	color: #9DFF70
+}
+	
+.highlight_keyword_default
+, .highlight_keyword_control_statement
+, .highlight_keyword_storage_class
+, .highlight_keyword_exception_handling
+, .highlight_keyword_introspection
+, .highlight_keyword_static_assert
+, .highlight_keyword_optimization
+, .highlight_keyword_new_delete
+, .highlight_keyword_clr
+, .highlight_keyword_other
+, .highlight_keyword_type_specification
+, .highlight_keyword_namespace
+, .highlight_keyword_template
+, .highlight_keyword_function
+, .highlight_keyword_in
+, .highlight_keyword_typedef
+, .highlight_keyword_using
+, .highlight_keyword_this
+, .highlight_keyword_operator
+, .highlight_keyword_virtual
+, .highlight_keyword_casts
+, .highlight_keyword_pure
+, .highlight_keyword_abstract
+{
+	color: #FFFFFF
+}
