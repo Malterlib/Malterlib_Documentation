@@ -124,6 +124,11 @@ span.charliteral
 	color: inherit;
 }
 
+tt, code, kdb, samp
+{
+	font-family: Unbroken, monospace, fixed;
+}
+
 span.lineno a.line
 , span.lineno a.line:visited
 , span.lineno a.line .highlight_number

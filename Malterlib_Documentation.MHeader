@@ -91,7 +91,7 @@
 		}
 		%Group src
 		{
-			%File "/Development/Malterlib/Tools/doxygen/stable/src/^*"
+//			%File "/Development/Malterlib/Tools/doxygen/stable/src/^*"
 		}
 	/*	%Group generated_src
 		{
