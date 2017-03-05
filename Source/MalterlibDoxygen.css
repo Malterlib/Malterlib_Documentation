@@ -402,11 +402,30 @@ p
 	border-top-left-radius: 0px;
 	border-bottom-right-radius: 0px;
 	border-bottom-left-radius: 0px;
+	text-shadow: none;
 }
-.memproto, dl.reflist dt
+
+span.mlabel
 {
-	border-top-right-radius: 5px;
-	border-top-left-radius: 5px;
+	border-top: 0px;
+	border-bottom: 0px;
+	border-left: 0px;
+	border-right: 0px;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+	border-bottom-right-radius: 0px;
+	border-bottom-left-radius: 0px;
+}
+
+.memtitle {
+	background-image: none;
+	border-top-right-radius: 0px;
+	border-top-left-radius: 0px;
+	line-height: 1.0;
+}
+
+h2 {
+	font-size: 14px; 
 }
 
 .navpath ul

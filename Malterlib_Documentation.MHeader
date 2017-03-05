@@ -14,6 +14,7 @@
 		BaseName "Malterlib_Documentation"
 		FileName "Docs"
 		Type "Executable"
+		
 		LDFlags "--doxygen-root @('../..'->MakeAbsolute()) --doxygen-include @('Source/Malterlib.doxygen'->MakeAbsolute()) --doxygen-tag-include @('Source/MalterlibTag.doxygen'->MakeAbsolute()) @(Target.LDFlags)"
 		{
 			&
@@ -23,7 +24,7 @@
 			}
 		}
 
-		ExtraLinkerFlags "--doxygen-root @('../..'->MakeAbsolute()) --doxygen-include @('Source/Malterlib.doxygen'->MakeAbsolute()) --doxygen-tag-include @('Source/MalterlibTag.doxygen'->MakeAbsolute()) @(Target.LDFlags)"
+		ExtraLinkerFlags "--doxygen-root @('../..'->MakeAbsolute()) --doxygen-include @('Source/Malterlib.doxygen'->MakeAbsolute()) --doxygen-tag-include @('Source/MalterlibTag.doxygen'->MakeAbsolute()) @(Target.ExtraLinkerFlags)"
 		{
 			&
 			{
@@ -32,6 +33,25 @@
 			}
 		}
 		
+		LDFlags "--doxygen-enable-clang true @(Target.LDFlags)"
+		{
+			&
+			{
+				GeneratorFamily Xcode
+				Documentation Doxygen
+				MalterlibDocumentationDoxygenEnableClang true
+			}
+		}
+		
+		ExtraLinkerFlags "--doxygen-enable-clang true @(Target.ExtraLinkerFlags)"
+		{
+			&
+			{
+				GeneratorFamily VisualStudio
+				Documentation Doxygen
+				MalterlibDocumentationDoxygenEnableClang true
+			}
+		}
 	}
 	
 	%Group "Source"
@@ -118,11 +138,13 @@
 	/*
 	%Dependency Lib_Malterlib
 	/*/
+	%Dependency Lib_Malterlib_Intrusive
 	%Dependency Lib_Malterlib_Function
 	%Dependency Lib_Malterlib_Iterator
 	%Dependency Lib_Malterlib_Algorithm
 	%Dependency Lib_Malterlib_String
 	%Dependency Lib_Malterlib_Core
+	%Dependency Lib_Malterlib_Concurrency
 	//*/
 }
 
@@ -175,6 +197,7 @@ Compile
 
 %Workspace "Malterlib_Documentation"
 {
+	Target.FollowIndirectDependencies false
 	Workspace.Enabled "true"
 	{
 		!!DocumentationEnabled true
