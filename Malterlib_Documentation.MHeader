@@ -1,6 +1,8 @@
 // Copyright © 2015 Hansoft AB 
 // Distributed under the MIT license, see license text in LICENSE.Malterlib
 
+Property.MalterlibDoxygenImageExtensions "jpg;png;svg;@(MalterlibDoxygenImageExtensions)"
+
 %Target "Exe_Malterlib_Documentation"
 {
 	Property
@@ -8,6 +10,32 @@
 		IntermediateDirectoriesFile "@(GeneratedDirectory)Includes.doxygen"
 		DocumentationModule Malterlib
 		MalterlibPostCopyProject MalterlibDocumentation
+		
+		DoxygenLinkerFlags "--doxygen-root @('../..'->MakeAbsolute()) --doxygen-include @('Source/Malterlib.doxygen'->MakeAbsolute()) --doxygen-tag-include @('Source/MalterlibTag.doxygen'->MakeAbsolute()) @(DoxygenLinkerFlags)"
+		{
+			&
+			{
+				Documentation Doxygen
+			}
+		}
+
+		DoxygenLinkerFlags "--doxygen-enable-clang true @(DoxygenLinkerFlags)"
+		{
+			&
+			{
+				Documentation Doxygen
+				MalterlibDocumentationDoxygenEnableClang true
+			}
+		}
+
+		DoxygenLinkerFlags "--doxygen-image-extensions \"@(MalterlibDoxygenImageExtensions)\" @(DoxygenLinkerFlags)"
+		{
+			&
+			{
+				Documentation Doxygen
+				!MalterlibDoxygenImageExtensions ""
+			}
+		}
 	}
 	Target
 	{
@@ -15,78 +43,15 @@
 		FileName "Docs"
 		Type "Executable"
 		
-		LDFlags "--doxygen-root @('../..'->MakeAbsolute()) --doxygen-include @('Source/Malterlib.doxygen'->MakeAbsolute()) --doxygen-tag-include @('Source/MalterlibTag.doxygen'->MakeAbsolute()) @(Target.LDFlags)"
+		LDFlags "@(DoxygenLinkerFlags) @(Target.LDFlags)"
 		{
-			&
-			{
-				GeneratorFamily Xcode
-				Documentation Doxygen
-			}
-		}
-
-		ExtraLinkerFlags "--doxygen-root @('../..'->MakeAbsolute()) --doxygen-include @('Source/Malterlib.doxygen'->MakeAbsolute()) --doxygen-tag-include @('Source/MalterlibTag.doxygen'->MakeAbsolute()) @(Target.ExtraLinkerFlags)"
-		{
-			&
-			{
-				GeneratorFamily VisualStudio
-				Documentation Doxygen
-			}
-		}
-		
-		LDFlags "--doxygen-enable-clang true @(Target.LDFlags)"
-		{
-			&
-			{
-				GeneratorFamily Xcode
-				Documentation Doxygen
-				MalterlibDocumentationDoxygenEnableClang true
-			}
-		}
-		
-		ExtraLinkerFlags "--doxygen-enable-clang true @(Target.ExtraLinkerFlags)"
-		{
-			&
-			{
-				GeneratorFamily VisualStudio
-				Documentation Doxygen
-				MalterlibDocumentationDoxygenEnableClang true
-			}
+			!!GeneratorFamily Xcode
 		}
 	}
 	
 	%Group "Source"
 	{
 		%File "Source/*"
-		/*
-		%Group "Generated Files"
-		{
-			%GenerateFile "Generate"
-			{
-				Property
-				{
-					Name "@(GeneratedDirectory)GenerateDocumentation@(ScriptExtension)"
-					Contents "#!/bin/bash\n"\
-							"doxygen Generated.doxygen"
-					Executable true
-					UnixLineEnds "@(ScriptUnixLineEnds)"
-					UnicodeBOM "false"
-				}
-			}
-			%GenerateFile "Doxygen"
-			{
-				Property
-				{
-					
-					Name "@(GeneratedDirectory)/Generated.doxygen"
-					Contents	"@@INCLUDE=@('Malterlib.doxygen'->MakeAbsolute())\n"\
-								"OUTPUT_DIRECTORY=@(Target.OutputDirectory)\n"\
-								"INPUT=@('..'->MakeAbsolute())\n"
-					
-					UnixLineEnds "true"
-					UnicodeBOM "false"
-				}
-			}
-		}*/
 	}
 	
 	%Group Resources
@@ -94,57 +59,17 @@
 		%File "Resources/*"
 	}
 	
-	%Group Doxygen
-	{
-		!MalterlibBuildServerBuild true 
-		Compile
-		{
-			!!GeneratorFamily Xcode
-			IndentWidth 2
-			TabWidth 2
-			UsesTabs false
-
-		}
-		Compile
-		{
-			Disabled true
-		}
-		%Group src
-		{
-//			%File "/Development/Malterlib/Tools/doxygen/stable/src/^*"
-		}
-	/*	%Group generated_src
-		{
-			%File "/Development/Malterlib/Tools/doxygen/stable/generated_src/^*"
-		}*/
-	}
-	 
-	
-	/*
-	%Group Clang
-	{
-		Compile
-		{
-			!!GeneratorFamily Xcode
-			IndentWidth 2
-			TabWidth 2
-			UsesTabs false
-		}
-		%File "/Development/Malterlib/Tools/llvm/stable/llvm/tools/clang/^*"
-	}
-	 */
-	// /Development/Malterlib/Tools/doxygen/stable/bin/doxygen
-	
 	/*
 	%Dependency Lib_Malterlib
 	/*/
-	%Dependency Lib_Malterlib_Intrusive
-	%Dependency Lib_Malterlib_Function
-	%Dependency Lib_Malterlib_Iterator
 	%Dependency Lib_Malterlib_Algorithm
 	%Dependency Lib_Malterlib_String
 	%Dependency Lib_Malterlib_Core
 	%Dependency Lib_Malterlib_Concurrency
+	%Dependency Lib_Malterlib_Function
+	%Dependency Lib_Malterlib_Memory
+	%Dependency Lib_Malterlib_Intrusive
+	%Dependency Lib_Malterlib_Iterator
 	//*/
 }
 
