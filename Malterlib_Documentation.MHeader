@@ -79,6 +79,7 @@ Target
 	PreBuildScript	"@(Builtin.MToolExe) DiffCopy \"@('Source/*.css'->MakeAbsolute())\" \"@(Target.OutputDirectory)\" \"\" 0\n"\
 					"@(Builtin.MToolExe) DiffCopy \"@('Source/*.html'->MakeAbsolute())\" \"@(Target.OutputDirectory)\" \"\" 0\n"\
 					"@(Builtin.MToolExe) DiffCopy \"@('Source/*.xml'->MakeAbsolute())\" \"@(Target.OutputDirectory)\" \"\" 0\n"\
+					"@(Builtin.MToolExe) DiffCopy \"@('Source/*.txt'->MakeAbsolute())\" \"@(Target.OutputDirectory)\" \"\" 0\n"\
 					"@(Builtin.MToolExe) DiffCopy \"@('Resources/*.svg'->MakeAbsolute())\" \"@(Target.OutputDirectory)\" \"\" 0\n"\
 					"@(Target.PreBuildScript)"
 	{
