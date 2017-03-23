@@ -66,6 +66,7 @@ Property.MalterlibDoxygenImageExtensions "jpg;png;svg;@(MalterlibDoxygenImageExt
 	%Dependency Lib_Malterlib_String
 	%Dependency Lib_Malterlib_Core
 	%Dependency Lib_Malterlib_Concurrency
+	%Dependency Lib_Malterlib_Cloud
 	%Dependency Lib_Malterlib_Function
 	%Dependency Lib_Malterlib_Memory
 	%Dependency Lib_Malterlib_Intrusive
