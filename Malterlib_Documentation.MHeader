@@ -3,6 +3,24 @@
 
 Property.MalterlibDoxygenImageExtensions "jpg;png;svg;@(MalterlibDoxygenImageExtensions)"
 
+Property.MalterlibDocumenationIncludeAllLibraries true
+
+Property.MalterlibBuildDependenciesContents	"@(MalterlibBuildDependenciesContents)"\
+			"@('Source/BuildDoxygen.sh'->MakeAbsolute()) \"@(MalterlibDependenciesDirectory)/doxygen\" \"@(MalterlibMainMalterlibRepo)\"\r\n"\
+			"ErrorLevel=$?\n"\
+			"if [ \"$ErrorLevel\" != \"0\" ]; then\n"\
+			"  echo error: Failed to update doxygen dependencies\n"\
+			"  exit 1\n"\
+			"fi\n"
+{
+	!!Documentation Doxygen
+}
+
+Compile.PreprocessorDefines "SQLITE_OMIT_LOAD_EXTENSION;@(Compile.PreprocessorDefines)"
+{
+	!!Documentation Doxygen
+}
+
 %Target "Exe_Malterlib_Documentation"
 {
 	Property
@@ -59,19 +77,25 @@ Property.MalterlibDoxygenImageExtensions "jpg;png;svg;@(MalterlibDoxygenImageExt
 		%File "Resources/*"
 	}
 	
-	/*
 	%Dependency Lib_Malterlib
-	/*/
-	%Dependency Lib_Malterlib_Algorithm
-	%Dependency Lib_Malterlib_String
-	%Dependency Lib_Malterlib_Core
-	%Dependency Lib_Malterlib_Concurrency
-	%Dependency Lib_Malterlib_Cloud
-	%Dependency Lib_Malterlib_Function
-	%Dependency Lib_Malterlib_Memory
-	%Dependency Lib_Malterlib_Intrusive
-	%Dependency Lib_Malterlib_Iterator
-	//*/
+	{
+		!!MalterlibDocumenationIncludeAllLibraries true
+	}
+	
+	%Group DocumentedLibraries
+	{
+		!MalterlibDocumenationIncludeAllLibraries true
+		
+		%Dependency Lib_Malterlib_Algorithm
+		%Dependency Lib_Malterlib_String
+		%Dependency Lib_Malterlib_Core
+		%Dependency Lib_Malterlib_Concurrency
+		%Dependency Lib_Malterlib_Cloud
+		%Dependency Lib_Malterlib_Function
+		%Dependency Lib_Malterlib_Memory
+		%Dependency Lib_Malterlib_Intrusive
+		%Dependency Lib_Malterlib_Iterator
+	}
 }
 
 
@@ -125,6 +149,10 @@ Compile
 %Workspace "Malterlib_Documentation"
 {
 	Target.FollowIndirectDependencies false
+	{
+		!MalterlibDocumenationIncludeAllLibraries true
+	}
+
 	Workspace.Enabled "true"
 	{
 		!!DocumentationEnabled true
