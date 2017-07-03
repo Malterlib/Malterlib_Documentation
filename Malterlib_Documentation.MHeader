@@ -90,6 +90,7 @@ Compile.PreprocessorDefines "SQLITE_OMIT_LOAD_EXTENSION;@(Compile.PreprocessorDe
 		%Dependency Lib_Malterlib_String
 		%Dependency Lib_Malterlib_Core
 		%Dependency Lib_Malterlib_Concurrency
+		%Dependency Lib_Malterlib_Container
 		%Dependency Lib_Malterlib_Cloud
 		%Dependency Lib_Malterlib_Function
 		%Dependency Lib_Malterlib_Memory
