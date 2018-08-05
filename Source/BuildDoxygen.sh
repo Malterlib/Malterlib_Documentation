@@ -62,7 +62,7 @@ pushd "$OutputDirectory"
 mkdir -p build
 pushd build
 cmake ../doxygen
-NCPUS=`sysctl -n hw.ncpu`
+NCPUS=`getconf _NPROCESSORS_ONLN`
 echo Number of CPUs: ${NCPUS}
 make -j${NCPUS}
 popd
