@@ -13,6 +13,9 @@ unset MACOSX_DEPLOYMENT_TARGET
 unset SDKROOT
 unset PRODUCT_SPECIFIC_LDFLAGS
 unset OTHER_CFLAGS_ONLY
+unset CC
+unset CLANG
+unset CLANG_ANALYZER_EXEC
 
 if [ ! -e "$OutputDirectory" ]; then
 	mkdir -p "$OutputDirectory"

@@ -132,20 +132,6 @@ Compile
 	
 	DocumentationModule "@(DocumentationModule)"
 }
-Compile
-{
-	&
-	{
-		CompileDialect C
-		DocumentationEnabled true
-		GeneratorFamily Xcode
-	}
-	
-	DocumentationDocSetFeedName "@(DocumentationModule)"
-	DocumentationDocSetPublisherName "@(ProductCompany)"
-	DocumentationDocSetPublisherID "@(ProductCompanyUniqueIdentifier)"
-	DocumentationDocSetBundleID "@(ProductCompanyUniqueIdentifier).@(DocumentationModule->Replace(' ',''))"
-}
 
 %Workspace "Malterlib_Documentation"
 {
