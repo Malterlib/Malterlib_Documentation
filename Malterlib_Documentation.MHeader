@@ -13,12 +13,12 @@ Property.MalterlibBuildDependenciesContents	"@(MalterlibBuildDependenciesContent
 			"  exit 1\n"\
 			"fi\n"
 {
-	!!Documentation Doxygen
+	!!Documentation "Doxygen"
 }
 
 Compile.PreprocessorDefines "SQLITE_OMIT_LOAD_EXTENSION;@(Compile.PreprocessorDefines)"
 {
-	!!Documentation Doxygen
+	!!Documentation "Doxygen"
 }
 
 %Target "Exe_Malterlib_Documentation"
@@ -26,14 +26,14 @@ Compile.PreprocessorDefines "SQLITE_OMIT_LOAD_EXTENSION;@(Compile.PreprocessorDe
 	Property
 	{
 		IntermediateDirectoriesFile "@(GeneratedDirectory)Includes.doxygen"
-		DocumentationModule Malterlib
-		MalterlibPostCopyProject MalterlibDocumentation
+		DocumentationModule "Malterlib"
+		MalterlibPostCopyProject "MalterlibDocumentation"
 		
 		DoxygenLinkerFlags "--doxygen-root @('../..'->MakeAbsolute()) --doxygen-include @('Source/Malterlib.doxygen'->MakeAbsolute()) --doxygen-tag-include @('Source/MalterlibTag.doxygen'->MakeAbsolute()) @(DoxygenLinkerFlags)"
 		{
 			&
 			{
-				Documentation Doxygen
+				Documentation "Doxygen"
 			}
 		}
 
@@ -41,7 +41,7 @@ Compile.PreprocessorDefines "SQLITE_OMIT_LOAD_EXTENSION;@(Compile.PreprocessorDe
 		{
 			&
 			{
-				Documentation Doxygen
+				Documentation "Doxygen"
 				MalterlibDocumentationDoxygenEnableClang true
 			}
 		}
@@ -50,7 +50,7 @@ Compile.PreprocessorDefines "SQLITE_OMIT_LOAD_EXTENSION;@(Compile.PreprocessorDe
 		{
 			&
 			{
-				Documentation Doxygen
+				Documentation "Doxygen"
 				!MalterlibDoxygenImageExtensions ""
 			}
 		}
@@ -63,7 +63,7 @@ Compile.PreprocessorDefines "SQLITE_OMIT_LOAD_EXTENSION;@(Compile.PreprocessorDe
 		
 		LDFlags "@(DoxygenLinkerFlags) @(Target.LDFlags)"
 		{
-			!!GeneratorFamily Xcode
+			!!GeneratorFamily "Xcode"
 		}
 	}
 	
@@ -72,30 +72,30 @@ Compile.PreprocessorDefines "SQLITE_OMIT_LOAD_EXTENSION;@(Compile.PreprocessorDe
 		%File "Source/*"
 	}
 	
-	%Group Resources
+	%Group "Resources"
 	{
 		%File "Resources/*"
 	}
 	
-	%Dependency Lib_Malterlib
+	%Dependency "Lib_Malterlib"
 	{
 		!!MalterlibDocumenationIncludeAllLibraries true
 	}
 	
-	%Group DocumentedLibraries
+	%Group "DocumentedLibraries"
 	{
 		!MalterlibDocumenationIncludeAllLibraries true
 		
-		%Dependency Lib_Malterlib_Algorithm
-		%Dependency Lib_Malterlib_String
-		%Dependency Lib_Malterlib_Core
-		%Dependency Lib_Malterlib_Concurrency
-		%Dependency Lib_Malterlib_Container
-		%Dependency Lib_Malterlib_Cloud
-		%Dependency Lib_Malterlib_Function
-		%Dependency Lib_Malterlib_Memory
-		%Dependency Lib_Malterlib_Intrusive
-		%Dependency Lib_Malterlib_Iterator
+		%Dependency "Lib_Malterlib_Algorithm"
+		%Dependency "Lib_Malterlib_String"
+		%Dependency "Lib_Malterlib_Core"
+		%Dependency "Lib_Malterlib_Concurrency"
+		%Dependency "Lib_Malterlib_Container"
+		%Dependency "Lib_Malterlib_Cloud"
+		%Dependency "Lib_Malterlib_Function"
+		%Dependency "Lib_Malterlib_Memory"
+		%Dependency "Lib_Malterlib_Intrusive"
+		%Dependency "Lib_Malterlib_Iterator"
 	}
 }
 
@@ -109,7 +109,7 @@ Target
 					"@(Builtin.MToolExe) DiffCopy \"@('Resources/*.svg'->MakeAbsolute())\" \"@(Target.OutputDirectory)\" \"\" 0\n"\
 					"@(Target.PreBuildScript)"
 	{
-		!!Documentation Doxygen
+		!!Documentation "Doxygen"
 	}
 
 }
@@ -126,7 +126,7 @@ Compile
 {
 	&
 	{
-		CompileDialect C
+		CompileDialect "C"
 		DocumentationEnabled true
 	}
 	
@@ -140,21 +140,21 @@ Compile
 		!MalterlibDocumenationIncludeAllLibraries true
 	}
 
-	Workspace.Enabled "true"
+	Workspace.Enabled true
 	{
 		!!DocumentationEnabled true
 	}
-	Workspace.Enabled "false"
+	Workspace.Enabled false
 	{
 		!DocumentationEnabled true
 	}
-	%Target Exe_Malterlib_Documentation
+	%Target "Exe_Malterlib_Documentation"
 }
 
 /*
 %Group "{Malterlib_Documenation}/Tools/Malterlib"
 {
-	%Target Tool_GenerateDocumentation
+	%Target "Tool_GenerateDocumentation"
 }
 
 Workspace
