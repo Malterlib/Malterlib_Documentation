@@ -1,22 +1,29 @@
-// Copyright © 2015 Hansoft AB 
+// Copyright © 2015 Hansoft AB
 // Distributed under the MIT license, see license text in LICENSE.Malterlib
 
-Property.MalterlibDoxygenImageExtensions "jpg;png;svg;@(MalterlibDoxygenImageExtensions)"
+Property
+{
+	MalterlibDoxygenImageExtensions define [string]?
+	MalterlibDoxygenImageExtensions += ["jpg", "png", "svg"]
+}
 
-Property.MalterlibDocumenationIncludeAllLibraries true
+Property
+{
+	MalterlibDocumenationIncludeAllLibraries define bool = true
+	MalterlibDocumentationDoxygenEnableClang define bool = false
+}
 
-Property.MalterlibBuildDependenciesContents	"@(MalterlibBuildDependenciesContents)"\
-			"@('Source/BuildDoxygen.sh'->MakeAbsolute()) \"@(MalterlibDependenciesDirectory)/doxygen\" \"@(MalterlibMainMalterlibRepo)\"\r\n"\
-			"ErrorLevel=$?\n"\
-			"if [ \"$ErrorLevel\" != \"0\" ]; then\n"\
-			"  echo error: Failed to update doxygen dependencies\n"\
-			"  exit 1\n"\
-			"fi\n"
+Property.MalterlibBuildDependenciesContents =+	`@("Source/BuildDoxygen.sh"->MakeAbsolute()->EscapeHost()) @((MalterlibDependenciesDirectory / "doxygen")->EscapeHost()) @(MalterlibMainMalterlibRepo->EJSONToString(""))\r\n`\
+												`ErrorLevel=$?\n`\
+												`if [ "$ErrorLevel" != "0" ]; then\n`\
+												`	echo error: Failed to update doxygen dependencies\n`\
+												`	exit 1\n`\
+												`fi\n`
 {
 	!!Documentation "Doxygen"
 }
 
-Compile.PreprocessorDefines "SQLITE_OMIT_LOAD_EXTENSION;@(Compile.PreprocessorDefines)"
+Compile.PreprocessorDefines += "SQLITE_OMIT_LOAD_EXTENSION"
 {
 	!!Documentation "Doxygen"
 }
@@ -25,11 +32,12 @@ Compile.PreprocessorDefines "SQLITE_OMIT_LOAD_EXTENSION;@(Compile.PreprocessorDe
 {
 	Property
 	{
-		IntermediateDirectoriesFile "@(GeneratedDirectory)Includes.doxygen"
+		IntermediateDirectoriesFile define string = `@(GeneratedDirectory)Includes.doxygen`
 		DocumentationModule "Malterlib"
 		MalterlibPostCopyProject "MalterlibDocumentation"
-		
-		DoxygenLinkerFlags "--doxygen-root @('../..'->MakeAbsolute()) --doxygen-include @('Source/Malterlib.doxygen'->MakeAbsolute()) --doxygen-tag-include @('Source/MalterlibTag.doxygen'->MakeAbsolute()) @(DoxygenLinkerFlags)"
+
+		DoxygenLinkerFlags define [one_of(string, [string])] = []
+		DoxygenLinkerFlags =+ [["--doxygen-root", "../.."->MakeAbsolute()], ["--doxygen-include", "Source/Malterlib.doxygen"->MakeAbsolute()], ["--doxygen-tag-include", "Source/MalterlibTag.doxygen"->MakeAbsolute()]]
 		{
 			&
 			{
@@ -37,7 +45,7 @@ Compile.PreprocessorDefines "SQLITE_OMIT_LOAD_EXTENSION;@(Compile.PreprocessorDe
 			}
 		}
 
-		DoxygenLinkerFlags "--doxygen-enable-clang true @(DoxygenLinkerFlags)"
+		DoxygenLinkerFlags =+ [["--doxygen-enable-clang", "true"]]
 		{
 			&
 			{
@@ -46,12 +54,12 @@ Compile.PreprocessorDefines "SQLITE_OMIT_LOAD_EXTENSION;@(Compile.PreprocessorDe
 			}
 		}
 
-		DoxygenLinkerFlags "--doxygen-image-extensions \"@(MalterlibDoxygenImageExtensions)\" @(DoxygenLinkerFlags)"
+		DoxygenLinkerFlags =+ [["--doxygen-image-extensions", MalterlibDoxygenImageExtensions->Unique()...]]
 		{
 			&
 			{
 				Documentation "Doxygen"
-				!MalterlibDoxygenImageExtensions ""
+				!MalterlibDoxygenImageExtensions undefined
 			}
 		}
 	}
@@ -60,32 +68,32 @@ Compile.PreprocessorDefines "SQLITE_OMIT_LOAD_EXTENSION;@(Compile.PreprocessorDe
 		BaseName "Malterlib_Documentation"
 		FileName "Docs"
 		Type "Executable"
-		
-		LDFlags "@(DoxygenLinkerFlags) @(Target.LDFlags)"
+
+		LDFlags += DoxygenLinkerFlags
 		{
 			!!GeneratorFamily "Xcode"
 		}
 	}
-	
+
 	%Group "Source"
 	{
 		%File "Source/*"
 	}
-	
+
 	%Group "Resources"
 	{
 		%File "Resources/*"
 	}
-	
+
 	%Dependency "Lib_Malterlib"
 	{
 		!!MalterlibDocumenationIncludeAllLibraries true
 	}
-	
+
 	%Group "DocumentedLibraries"
 	{
 		!MalterlibDocumenationIncludeAllLibraries true
-		
+
 		%Dependency "Lib_Malterlib_Algorithm"
 		%Dependency "Lib_Malterlib_String"
 		%Dependency "Lib_Malterlib_Core"
@@ -102,12 +110,11 @@ Compile.PreprocessorDefines "SQLITE_OMIT_LOAD_EXTENSION;@(Compile.PreprocessorDe
 
 Target
 {
-	PreBuildScript	"@(Builtin.MToolExe) DiffCopy \"@('Source/*.css'->MakeAbsolute())\" \"@(Target.OutputDirectory)\" \"\" 0\n"\
-					"@(Builtin.MToolExe) DiffCopy \"@('Source/*.html'->MakeAbsolute())\" \"@(Target.OutputDirectory)\" \"\" 0\n"\
-					"@(Builtin.MToolExe) DiffCopy \"@('Source/*.xml'->MakeAbsolute())\" \"@(Target.OutputDirectory)\" \"\" 0\n"\
-					"@(Builtin.MToolExe) DiffCopy \"@('Source/*.txt'->MakeAbsolute())\" \"@(Target.OutputDirectory)\" \"\" 0\n"\
-					"@(Builtin.MToolExe) DiffCopy \"@('Resources/*.svg'->MakeAbsolute())\" \"@(Target.OutputDirectory)\" \"\" 0\n"\
-					"@(Target.PreBuildScript)"
+	PreBuildScript +=	`@(Builtin.MToolExe) DiffCopy "@("Source/*.css"->MakeAbsolute())" "@(Target.OutputDirectory)" "" 0\n`\
+						`@(Builtin.MToolExe) DiffCopy "@("Source/*.html"->MakeAbsolute())" "@(Target.OutputDirectory)" "" 0\n`\
+						`@(Builtin.MToolExe) DiffCopy "@("Source/*.xml"->MakeAbsolute())" "@(Target.OutputDirectory)" "" 0\n`\
+						`@(Builtin.MToolExe) DiffCopy "@("Source/*.txt"->MakeAbsolute())" "@(Target.OutputDirectory)" "" 0\n`\
+						`@(Builtin.MToolExe) DiffCopy "@("Resources/*.svg"->MakeAbsolute())" "@(Target.OutputDirectory)" "" 0\n`
 	{
 		!!Documentation "Doxygen"
 	}
@@ -116,10 +123,7 @@ Target
 
 Property
 {
-	DocumentationModule "Unknown"
-	{
-		!!DocumentationModule ""
-	}
+	DocumentationModule define string = "Unknown"
 }
 
 Compile
@@ -129,8 +133,8 @@ Compile
 		CompileDialect "C"
 		DocumentationEnabled true
 	}
-	
-	DocumentationModule "@(DocumentationModule)"
+
+	DocumentationModule define string? = DocumentationModule
 }
 
 %Workspace "Malterlib_Documentation"
@@ -159,7 +163,7 @@ Compile
 
 Workspace
 {
-//	ExtraGroups "{Malterlib_Documenation}/Tools/Malterlib;@(Workspace.ExtraGroups)"
+//	ExtraGroups =+ "{Malterlib_Documenation}/Tools/Malterlib"
 }
 */
 /*
@@ -171,7 +175,7 @@ Workspace
 	}
 }
 
-Target.ExtraGroups "~Automatic/Dependencies/Tool_GenerateDocumentation;@(Target.ExtraGroups)"
+Target.ExtraGroups =+ "~Automatic/Dependencies/Tool_GenerateDocumentation"
 {
 	!!Target:Target.Name "Tool_GenerateBuildSystem"
 }
