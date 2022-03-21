@@ -72,6 +72,7 @@ span.comment
 {
 	background: #003737;
 	color: #ff9f3b;
+	padding: 0px 3px 1px 0px;
 }
 
 span.lineno a
@@ -109,6 +110,11 @@ span.keywordflow
 
 span.preprocessor
 {
+	color: #ffffff
+}
+
+span.preprocessor_include
+{
 	color: #009EFF
 }
 
@@ -132,12 +138,14 @@ tt, code, kdb, samp
 	font-family: Unbroken, monospace, fixed;
 	background-color: hsl(0, 0%, 29%);
 	font-size: 10px;
-	border-radius: 3.5px;
-	padding: 3px 4px 2px 3px;
+	border-radius: 2px;
+	padding: 3px 5px 2px 4px;
+    margin-left: 5px;
+    margin-right: 5px;
 	line-height: 10px;
 	position: relative;
 	top: -1px;
-	box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.3), 0 1px 4px 0 rgba(0, 0, 0, 0.3);
+	box-shadow: none;
 }
 
 span.lineno a.line
@@ -175,6 +183,8 @@ div.contents {
     float: left;
     clear: both;
 	margin-right: 20px;
+	margin-top: 20px;
+    margin-left: 20px;
 }
 
 pre.fragment 
@@ -193,7 +203,7 @@ div.fragment
 	background-color: black;
     display: table;
 	border-collapse: separate;
-	border-spacing: 6px;
+	border-spacing: 10px;
 	border: 1px solid hsl(0, 0%, 40%);
 	border-radius: 5px;
 	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3), 0 3px 8px 0 rgba(0, 0, 0, 0.3);
@@ -201,7 +211,7 @@ div.fragment
 
 div.fragment
 {
-	margin: 4px 4px 4px 4px;
+	margin: 10px 4px 19px 0px;
 }
 
 div.code_table
@@ -341,7 +351,7 @@ body, table, div, p, dl {
 
 table.markdownTable, table.doxtable
 {
-	box-shadow: 0 2px 5px 0 rgba(0, 0, 0, 0.3), 0 3px 8px 0 rgba(0, 0, 0, 0.3);
+	box-shadow: none;
 }
 
 .markdownTableBodyNone, .markdownTableBodyRight, .markdownTableBodyCenter, .markdownTableBodyLeft, table.doxtable td
@@ -451,6 +461,14 @@ span.mlabel
 	border-top-right-radius: 0px;
 	border-top-left-radius: 0px;
 	line-height: 1.0;
+	padding-top: 12px;
+	padding-right: 15px;
+	padding-left: 10px;
+}
+
+.permalink {
+    font-size: 100%;
+	padding-bottom: 2px;
 }
 
 h1 {
@@ -569,6 +587,13 @@ table.doxtable td, table.doxtable th
 table.doxtable td, table.doxtable th, table.markdownTable td, table.markdownTable th
 {
 	border: none;
+    padding: 7px 7px 7px;
+	border-collapse: separate;
+}
+
+table.markdownTable
+{
+	border-collapse: separate;
 }
 
 table.doxtable th
@@ -635,3 +660,31 @@ div.ah, span.ah {
 	box-shadow: none;
 	background-image: none;
 }
+
+div.textblock {
+	padding-bottom: 20px;
+}
+
+table.fieldtable
+{
+	margin-top: 20px;
+	margin-bottom: 20px;
+	border-radius: 0px;
+}
+
+.fieldtable th
+{
+	border-radius: 0px;
+	background-image: none;
+}
+
+div.headertitle
+{
+	padding: 10px 16px 10px 16px;
+}
+
+.memberdecls td.glow, .fieldtable tr.glow {
+	background-color: #777;
+	box-shadow: 0 0 15px #777;
+}
+

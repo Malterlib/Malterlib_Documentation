@@ -5,6 +5,9 @@ Property
 {
 	MalterlibDoxygenImageExtensions define [string]?
 	MalterlibDoxygenImageExtensions += ["jpg", "png", "svg"]
+
+	MalterlibDoxygenOptions define [string]?
+	//MalterlibDoxygenOptions += ["-d", "preprocessor"]
 }
 
 Property
@@ -54,12 +57,21 @@ Compile.PreprocessorDefines += "SQLITE_OMIT_LOAD_EXTENSION"
 			}
 		}
 
-		DoxygenLinkerFlags =+ [["--doxygen-image-extensions", MalterlibDoxygenImageExtensions->Unique()...]]
+		DoxygenLinkerFlags =+ [["--doxygen-image-extensions", MalterlibDoxygenImageExtensions->Unique()->Join(",")]]
 		{
 			&
 			{
 				Documentation "Doxygen"
 				!MalterlibDoxygenImageExtensions undefined
+			}
+		}
+
+		DoxygenLinkerFlags =+ [["--doxygen-options", MalterlibDoxygenOptions->Join(",")]]
+		{
+			&
+			{
+				Documentation "Doxygen"
+				!MalterlibDoxygenOptions undefined
 			}
 		}
 	}
@@ -85,9 +97,23 @@ Compile.PreprocessorDefines += "SQLITE_OMIT_LOAD_EXTENSION"
 		%File "Resources/*"
 	}
 
-	%Dependency "Lib_Malterlib"
+	%Group "AllLibraries"
 	{
 		!!MalterlibDocumenationIncludeAllLibraries true
+		%Dependency "Lib_Malterlib"
+		%Dependency "Lib_Malterlib_BuildSystem"
+		%Dependency "Lib_Malterlib_Cloud"
+		%Dependency "Lib_Malterlib_Concurrency"
+		%Dependency "Lib_Malterlib_Cryptography"
+		%Dependency "Lib_Malterlib_Database"
+		%Dependency "Lib_Malterlib_Instrumentation"
+		%Dependency "Lib_Malterlib_Mongo"
+		%Dependency "Lib_Malterlib_Network"
+		%Dependency "Lib_Malterlib_Perforce"
+		%Dependency "Lib_Malterlib_SQL"
+		%Dependency "Lib_Malterlib_Web"
+		%Dependency "Lib_Malterlib_WebApp"
+		%Dependency "Lib_Malterlib_XML"
 	}
 
 	%Group "DocumentedLibraries"

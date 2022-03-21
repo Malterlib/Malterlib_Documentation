@@ -52,6 +52,11 @@
 {
 	color: #D785FF
 }
+
+.highlight_concept
+{
+	color: #ffb680
+}
 	
 .highlight_template_type_param_class
 , .highlight_template_type_param_class_pack

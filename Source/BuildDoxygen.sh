@@ -4,7 +4,10 @@ trap 'rc=$?; echo "${BASH_SOURCE}:${LINENO}: error: Trapped error: $rc"; exit $r
 
 set -e
 
-export PATH="/opt/homebrew/sbin:/opt/homebrew/bin:/usr/local/sbin:/usr/local/bin:$PATH"
+export PATH="/usr/local/sbin:/usr/local/bin:$PATH"
+export PATH="/usr/local/opt/bison/bin:$PATH"
+export PATH="/opt/homebrew/sbin:/opt/homebrew/bin:$PATH"
+export PATH="/opt/homebrew/opt/bison/bin:$PATH"
 
 ScriptDir="$( cd "$( dirname "${BASH_SOURCE[0]}" )" && pwd )"
 
@@ -66,7 +69,7 @@ pushd "$OutputDirectory"
 
 mkdir -p build
 pushd build
-cmake ../doxygen
+cmake ../doxygen -DCMAKE_BUILD_TYPE=Release
 NCPUS=`getconf _NPROCESSORS_ONLN`
 echo Number of CPUs: ${NCPUS}
 make -j${NCPUS}
