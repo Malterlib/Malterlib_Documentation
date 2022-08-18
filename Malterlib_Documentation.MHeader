@@ -3,17 +3,17 @@
 
 Property
 {
-	MalterlibDoxygenImageExtensions define [string]?
+	MalterlibDoxygenImageExtensions: [string]?
 	MalterlibDoxygenImageExtensions += ["jpg", "png", "svg"]
 
-	MalterlibDoxygenOptions define [string]?
+	MalterlibDoxygenOptions: [string]?
 	//MalterlibDoxygenOptions += ["-d", "preprocessor"]
 }
 
 Property
 {
-	MalterlibDocumenationIncludeAllLibraries define bool = true
-	MalterlibDocumentationDoxygenEnableClang define bool = false
+	MalterlibDocumenationIncludeAllLibraries: bool = true
+	MalterlibDocumentationDoxygenEnableClang: bool = false
 }
 
 Property.MalterlibBuildDependenciesContents =+	`@("Source/BuildDoxygen.sh"->MakeAbsolute()->EscapeHost()) @((MalterlibDependenciesDirectory / "doxygen")->EscapeHost()) @(MalterlibMainMalterlibRepo->EJSONToString(""))\r\n`\
@@ -28,18 +28,22 @@ Property.MalterlibBuildDependenciesContents =+	`@("Source/BuildDoxygen.sh"->Make
 
 Compile.PreprocessorDefines += "SQLITE_OMIT_LOAD_EXTENSION"
 {
-	!!Documentation "Doxygen"
+	&
+	{
+		CompileDialect "C"
+		Documentation "Doxygen"
+	}
 }
 
 %Target "Exe_Malterlib_Documentation"
 {
 	Property
 	{
-		IntermediateDirectoriesFile define string = `@(GeneratedDirectory)Includes.doxygen`
+		IntermediateDirectoriesFile: string = `@(GeneratedDirectory)Includes.doxygen`
 		DocumentationModule "Malterlib"
 		MalterlibPostCopyProject "MalterlibDocumentation"
 
-		DoxygenLinkerFlags define [one_of(string, [string])] = []
+		DoxygenLinkerFlags: [one_of(string, [string])] = []
 		DoxygenLinkerFlags =+ [["--doxygen-root", "../.."->MakeAbsolute()], ["--doxygen-include", "Source/Malterlib.doxygen"->MakeAbsolute()], ["--doxygen-tag-include", "Source/MalterlibTag.doxygen"->MakeAbsolute()]]
 		{
 			&
@@ -149,7 +153,7 @@ Target
 
 Property
 {
-	DocumentationModule define string = "Unknown"
+	DocumentationModule: string = "Unknown"
 }
 
 Compile
@@ -160,7 +164,7 @@ Compile
 		DocumentationEnabled true
 	}
 
-	DocumentationModule define string? = DocumentationModule
+	DocumentationModule: string? = DocumentationModule
 }
 
 %Workspace "Malterlib_Documentation"
