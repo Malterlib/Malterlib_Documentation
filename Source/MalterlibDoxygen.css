@@ -214,6 +214,11 @@ div.fragment
 	margin: 10px 4px 19px 0px;
 }
 
+td div.fragment
+{
+	margin: 0px 0px 0px 0px;
+}
+
 div.code_table
 , .code_table table
 {
