@@ -67,6 +67,8 @@ popd
 
 pushd "$OutputDirectory"
 
+brew install bison graphviz
+rm -rf build
 mkdir -p build
 pushd build
 cmake ../doxygen -DCMAKE_BUILD_TYPE=Release
