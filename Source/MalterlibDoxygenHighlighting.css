@@ -9,18 +9,21 @@
 , .highlight_keyword_built_in_type_modifier
 , .highlight_keyword_built_in_float_type
 {
-	color: #FF5966
+	color: #FF5966;
+	color: color(display-p3 1 0.34 0.4);
 }
 	
 .highlight_number
 {
-	color: #FF0080
+	color: #FF0080;
+	color: color(display-p3 1 0 0.502);
 }
 	
 .highlight_template_non_type_param
 , .highlight_template_non_type_param_pack
 {
-	color: #FF5BAD
+	color: #FF5BAD;
+	color: color(display-p3 1 0.357 0.678);
 }
 	
 .highlight_global_constant
@@ -29,33 +32,39 @@
 , .highlight_keyword_built_in_constant
 , .highlight_constant_variable
 {
-	color: #FF8AC5
+	color: #FF8AC5;
+	color: color(display-p3 1 0.541 0.773);
 }
 	
 .highlight_member_constant_private
 {
-	color: #CA97B1
+	color: #CA97B1;
+	color: color(display-p3 0.792 0.592 0.694);
 }
 
 .highlight_function_template_non_type_param
 , .highlight_function_template_non_type_param_pack
 {
-	color: #FFB7DB
+	color: #FFB7DB;
+	color: color(display-p3 1 0.718 0.859);
 }
 	
 .highlight_character
 {
-	color: #FF48F0
+	color: #FF48F0;
+	color: color(display-p3 1 0.282 0.941);
 }
 	
 .highlight_namespace
 {
-	color: #D785FF
+	color: #D785FF;
+	color: color(display-p3 0.843 0.522 1);
 }
 
 .highlight_concept
 {
-	color: #ffb680
+	color: #ffb680;
+	color: color(display-p3 1 0.714 0.502);
 }
 	
 .highlight_template_type_param_class
@@ -65,7 +74,8 @@
 , .highlight_template_template_param
 , .highlight_template_template_param_pack
 {
-	color: #8269FF
+	color: #8269FF;
+	color: color(display-p3 0.51 0.412 1);
 }
 	
 .highlight_function_template_type_param_class
@@ -75,7 +85,8 @@
 , .highlight_function_template_template_param
 , .highlight_function_template_template_param_pack
 {
-	color: #CDC3FF
+	color: #CDC3FF;
+	color: color(display-p3 0.804 0.765 1);
 }
 	
 .highlight_type
@@ -86,44 +97,52 @@
 , .highlight_typedef
 , .highlight_enum
 {
-	color: #B8AAFF
+	color: #B8AAFF;
+	color: color(display-p3 0.722 0.667 1);
 }
 	
 .highlight_keyword_auto
 {
-	color: #DBD3FF
+	color: #DBD3FF;
+	color: color(display-p3 0.859 0.827 1);
 }
 	
 .highlight_string
 {
-	color: #009EFF
+	color: #009EFF;
+	color: color(display-p3 0 0.62 1);
 }
 	
 .highlight_function_parameter_functor
 , .highlight_function_parameter_pack_functor
 {
-	color: #00e4e6
+	color: #00e4e6;
+	color: color(display-p3 0 0.894 0.902);
 }
 	
 .highlight_function_parameter_output_functor
 , .highlight_function_parameter_output_pack_functor
 {
-	color: #36e8cd
+	color: #36e8cd;
+	color: color(display-p3 0.212 0.91 0.804);
 }
 	
 .highlight_variable_functor
 {
-	color: #00edae
+	color: #00edae;
+	color: color(display-p3 0 0.929 0.682);
 }
 	
 .highlight_member_variable_public_functor
 {
-	color: #00f265
+	color: #00f265;
+	color: color(display-p3 0 0.949 0.396);
 }
 	
 .highlight_member_variable_private_functor
 {
-	color: #4fc17e
+	color: #4fc17e;
+	color: color(display-p3 0.31 0.757 0.494);
 }
 	
 .highlight_member_function_public
@@ -131,7 +150,8 @@
 , .highlight_member_static_function_public
 , .highlight_member_static_function_public_recursive
 {
-	color: #26FF00
+	color: #26FF00;
+	color: color(display-p3 0.149 1 0);
 }
 	
 .highlight_function
@@ -139,7 +159,8 @@
 , .highlight_static_function
 , .highlight_static_function_recursive
 {
-	color: #1CB900
+	color: #1CB900;
+	color: color(display-p3 0.11 0.725 0);
 }
 	
 .highlight_member_function_private
@@ -147,50 +168,59 @@
 , .highlight_member_static_function_private
 , .highlight_member_static_function_private_recursive
 {
-	color: #8DD580
+	color: #8DD580;
+	color: color(display-p3 0.553 0.835 0.502);
 }
 	
 .highlight_function_parameter
 , .highlight_function_parameter_pack
 {
-	color: #E6FF00
+	color: #E6FF00;
+	color: color(display-p3 0.902 1 0);
 }
 	
 .highlight_function_parameter_output
 , .highlight_function_parameter_output_pack
 {
-	color: #FFF54B
+	color: #FFF54B;
+	color: color(display-p3 1 0.961 0.294);
 }
 	
 .highlight_plain_text
 {
-	color: #FFD700
+	color: #FFD700;
+	color: color(display-p3 1 0.843 0);
 }
 	
 .highlight_member_variable_public
 {
-	color: #FFA600
+	color: #FFA600;
+	color: color(display-p3 1 0.651 0);
 }
 	
 .highlight_member_variable_private
 {
-	color: #C59D53
+	color: #C59D53;
+	color: color(display-p3 0.773 0.616 0.325);
 }
 	
 .highlight_macro
 {
-	color: #FF7700
+	color: #FF7700;
+	color: color(display-p3 1 0.467 0);
 }
 
 .highlight_macro_parameter
 {
-	color: #FFBC81
+	color: #FFBC81;
+	color: color(display-p3 1 0.737 0.506);
 }
 	
 .highlight_member_static_variable_public
 , .highlight_member_static_variable_public_functor
 {
-	color: #FF3F1C
+	color: #FF3F1C;
+	color: color(display-p3 1 0.247 0.11);
 }
 	
 .highlight_global_variable
@@ -200,60 +230,71 @@
 , .highlight_static_variable
 , .highlight_static_variable_functor
 {
-	color: #E13819
+	color: #E13819;
+	color: color(display-p3 0.882 0.22 0.098);
 }
 	
 .highlight_member_static_variable_private
 , .highlight_member_static_variable_private_functor
 {
-	color: #D56955
+	color: #D56955;
+	color: color(display-p3 0.835 0.412 0.333);
 }
 	
 .highlight_operator
 , .highlight_preprocessor_operator
 , .highlight_keyword_preprocessor_directive
 {
-	color: #FFFFFF
+	color: #FFFFFF;
+	color: color(display-p3 1.0 1.0 1.0);
 }
 	
 .highlight_keyword_property_modifier
 {
-	color: #C0C0C0
+	color: #C0C0C0;
+	color: color(display-p3 0.753 0.753 0.753);
 }
 
 .highlight_keyword_typename
 {
-	color: #C0C0C0
+	color: #C0C0C0;
+	color: color(display-p3 0.753 0.753 0.753);
 }
 
 .highlight_preprocessor_escape
 {
-	color: #808080
+	color: #808080;
+	color: color(display-p3 0.502 0.502 0.502);
 }
 
 .highlight_keyword_access
 {
-	color: #FFC8CA
+	color: #FFC8CA;
+	color: color(display-p3 1 0.784 0.792);
 }
 
 .highlight_keyword_qualifier
 {
-	color: #FFB680
+	color: #FFB680;
+	color: color(display-p3 1 0.714 0.502);
 }
 	
 .highlight_documentation_comment
 {
-	color: #9BCDE6
+	color: #9BCDE6;
+	color: color(display-p3 0.608 0.804 0.902);
 }
 
 .highlight_documentation_comment_keyword
 {
-	color: #F070B6
+	color: #F070B6;
+	color: color(display-p3 0.941 0.439 0.714);
 }
 
 .highlight_comment_url
 {
-	color: #9DFF70
+	color: #9DFF70;
+	color: color(display-p3 0.616 1 0.439);
 }
 	
 .highlight_keyword_default
@@ -280,5 +321,6 @@
 , .highlight_keyword_pure
 , .highlight_keyword_abstract
 {
-	color: #FFFFFF
+	color: #FFFFFF;
+	color: color(display-p3 1.0 1.0 1.0);
 }

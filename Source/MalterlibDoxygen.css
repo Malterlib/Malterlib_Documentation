@@ -55,6 +55,7 @@ div.line
 	min-height: 10px;
 	background: #000000;
 	color: #FFD700;
+	color: color(display-p3 1 0.843 0);
 	white-space: pre;
 	word-wrap: inherit;
 	text-indent: 0px;
@@ -96,36 +97,43 @@ span.lineno
 span.keyword
 {
 	color: #ffffff;
+	color: color(display-p3 1.0 1.0 1.0);
 }
 
 span.keywordtype
 {
 	color: #ff5966;
+	color: color(display-p3 1 0.34 0.4);
 }
 
 span.keywordflow
 {
 	color: #ffffff;
+	color: color(display-p3 1.0 1.0 1.0);
 }
 
 span.preprocessor
 {
-	color: #ffffff
+	color: #ffffff;
+	color: color(display-p3 1.0 1.0 1.0);
 }
 
 span.preprocessor_include
 {
-	color: #009EFF
+	color: #009EFF;
+	color: color(display-p3 0 0.62 1);
 }
 
 span.stringliteral
 {
-	color: #009eff
+	color: #009eff;
+	color: color(display-p3 0 0.62 1);
 }
 
 span.charliteral
 {
-	color: #ff48f0
+	color: #ff48f0;
+	color: color(display-p3 1 0.282 0.941);
 }
 
 .code
