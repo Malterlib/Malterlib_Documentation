@@ -1,4 +1,4 @@
-/*	Copyright © 2015 Hansoft AB 
+/*	Copyright © 2015 Hansoft AB
 	Distributed under the MIT license, see license text in LICENSE.Malterlib
 */
 
@@ -48,7 +48,7 @@ div#MSearchResultsWindow[style]
 	white-space: normal;
 }
 
-div.line 
+div.line
 {
 	font-family: Unbroken, monospace, fixed;
 	font-size: 10px;
@@ -183,7 +183,7 @@ a.codeRef
 , a.lineRef:visited
 {
 	color: inherit;
-	border-bottom: 1px solid #606060;	
+	border-bottom: 1px solid #606060;
 }
 
 div.contents {
@@ -195,14 +195,14 @@ div.contents {
     margin-left: 20px;
 }
 
-pre.fragment 
+pre.fragment
 {
 	font-family: Unbroken, monospace, fixed;
 	font-size: 10px;
 }
 
 div.fragment
-, pre.fragment 
+, pre.fragment
 {
 	border: 0px;
     padding: 0px;
@@ -241,7 +241,7 @@ div.code_table
 
 .code_table th
 {
-	text-align: left; 
+	text-align: left;
 }
 
 a.el
@@ -341,12 +341,12 @@ td.memTemplItemRight
 	padding: 0px;
 }
 
-a 
+a
 {
 	color: #66b2ff;
 }
 
-.contents a:visited 
+.contents a:visited
 {
 	color: #66b2ff;
 }
@@ -378,7 +378,7 @@ table.markdownTable, table.doxtable
 	margin-bottom: 0;
 }
 
-.memproto, dl.reflist dt 
+.memproto, dl.reflist dt
 {
 	background-image:none;
 }
@@ -416,7 +416,7 @@ table.markdownTable, table.doxtable
 .memproto
 , .memproto td
 , .memproto tr
-, dl.reflist dt 
+, dl.reflist dt
 {
 	font-family: Unbroken;
 	font-weight: normal;
@@ -437,14 +437,14 @@ p
 	margin-bottom: 10px;
 }
 
-.memdoc, dl.reflist dd 
+.memdoc, dl.reflist dd
 {
 	background-image: none;
-    border-top: 1px solid #C0C0C0;      
+    border-top: 1px solid #C0C0C0;
     padding-top: 0px;
 }
 
-.memdoc, dl.reflist dd 
+.memdoc, dl.reflist dd
 ,.memproto, dl.reflist dt
 {
 	box-shadow: none;

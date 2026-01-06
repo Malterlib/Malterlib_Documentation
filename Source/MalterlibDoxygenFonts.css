@@ -1,4 +1,4 @@
-/*	Copyright © 2015 Hansoft AB 
+/*	Copyright © 2015 Hansoft AB
 	Distributed under the MIT license, see license text in LICENSE.Malterlib
 */
 
@@ -22,7 +22,7 @@
 	, only screen and (-o-min-device-pixel-ratio: 2)
 	, only screen and (-webkit-min-device-pixel-ratio: 2)
 	, only screen and (min-devicepixel-ratio: 2)
-	, only screen and (min-resolution: 2dppx) 
+	, only screen and (min-resolution: 2dppx)
 {
 	/* Font more suited for HiDPI screens */
 	@font-face {
@@ -38,7 +38,7 @@
 	, only screen and (-o-min-device-pixel-ratio: 2)
 	, only screen and (-webkit-min-device-pixel-ratio: 2)
 	, only screen and (min-devicepixel-ratio: 2)
-	, only screen and (min-resolution: 2dppx) 
+	, only screen and (min-resolution: 2dppx)
 {
 	/* Font more suited for HiDPI screens */
 	@font-face {
