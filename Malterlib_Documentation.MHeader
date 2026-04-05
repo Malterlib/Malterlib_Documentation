@@ -1,5 +1,17 @@
-// Copyright © 2015 Hansoft AB
-// Distributed under the MIT license, see license text in LICENSE.Malterlib
+// Copyright © Unbroken AB
+// SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
+
+Repository
+{
+	!!MalterlibRepoName "Malterlib_Documentation.git"
+
+	MalterlibRepoReusePaths =+ [
+		"Resources/MalterlibDoxygen.ai"
+		, "Tools/VisualStudioExpansionPlugin/MalterlibVSE.def"
+		, "Source/doxygen.versiontime"
+		, "Source/robots.txt"
+	]
+}
 
 Property
 {

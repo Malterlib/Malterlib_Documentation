@@ -1,1 +1,4 @@
+<!-- Copyright © Unbroken AB -->
+<!-- SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception -->
+
 <svg id="CloseSearch" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 11 11"><defs><style>.cls-1{fill:#bcbcbc;}.cls-2{fill:#636363;}</style></defs><title>MalterlibDoxygen_CloseSearch</title><circle class="cls-1" cx="5.54" cy="5.54" r="4.06"/><path class="cls-2" d="M5.5.5a5,5,0,1,0,5,5A5,5,0,0,0,5.5.5Zm3,7-1,1-2-2-2,2-1-1,2-2-2-2,1-1,2,2,2-2,1,1-2,2Z"/></svg>

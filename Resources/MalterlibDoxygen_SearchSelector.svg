@@ -1,1 +1,4 @@
+<!-- Copyright © Unbroken AB -->
+<!-- SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception -->
+
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 19"><defs><style>.cls-1{fill:#636363;}.cls-2{fill:#bcbcbc;}</style></defs><title>MalterlibDoxygen_SearchSelector</title><g id="SearchSelector"><path class="cls-1" d="M12.24,13.83,9.3,10.89A4.53,4.53,0,1,0,7.89,12.3l2.94,2.94a1,1,0,0,0,1.41-1.41ZM2,8.5A3.5,3.5,0,1,1,5.5,12,3.5,3.5,0,0,1,2,8.5Z"/><polygon class="cls-1" points="16 7 13.5 10 11 7 16 7"/><polygon class="cls-2" points="11 7 13.5 10 16 7 15 7 13.5 8.81 12 7 11 7"/></g></svg>

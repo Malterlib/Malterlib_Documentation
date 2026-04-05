@@ -1,1 +1,4 @@
+<!-- Copyright © Unbroken AB -->
+<!-- SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception -->
+
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><defs><style>.cls-1{fill:#636363;}.cls-2{fill:#bcbcbc;}</style></defs><title>MalterlibDoxygen_TreeViewSyncOff</title><g id="TreeViewSyncOff"><circle class="cls-1" cx="12" cy="12" r="11.5"/><path class="cls-2" d="M8,7,2,12l6,5V13.5H9.25l1.2-3H8Zm14,5L16,7v3.5H14.75l-1.2,3H16V17Z"/></g></svg>
