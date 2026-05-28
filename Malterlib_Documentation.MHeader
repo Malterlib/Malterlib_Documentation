@@ -28,7 +28,7 @@ Property
 	MalterlibDocumentationDoxygenEnableClang: bool = false
 }
 
-Property.MalterlibBuildDependenciesContents =+	`@("Source/BuildDoxygen.sh"->MakeAbsolute()->EscapeHost()) @((MalterlibDependenciesDirectory / "doxygen")->EscapeHost()) @(MalterlibMainMalterlibRepo->EJSONToString(""))\r\n`\
+Property.MalterlibBuildDependenciesContents =+	`@("Source/BuildDoxygen.sh"->MakeAbsolute()->EscapeBash()) @((MalterlibDependenciesDirectory / "doxygen")->EscapeBash()) @(MalterlibMainMalterlibRepo->EJSONToString(""))\r\n`\
 												`ErrorLevel=$?\n`\
 												`if [ "$ErrorLevel" != "0" ]; then\n`\
 												`	echo error: Failed to update doxygen dependencies\n`\
