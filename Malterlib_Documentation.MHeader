@@ -56,7 +56,11 @@ Compile.PreprocessorDefines += "SQLITE_OMIT_LOAD_EXTENSION"
 		MalterlibPostCopyProject "MalterlibDocumentation"
 
 		DoxygenLinkerFlags: [one_of(string, [string])] = []
-		DoxygenLinkerFlags =+ [["--doxygen-root", "../.."->MakeAbsolute()], ["--doxygen-include", "Source/Malterlib.doxygen"->MakeAbsolute()], ["--doxygen-tag-include", "Source/MalterlibTag.doxygen"->MakeAbsolute()]]
+		DoxygenLinkerFlags =+ [
+			["--doxygen-root", "../.."->MakeAbsolute()]
+			, ["--doxygen-include", "Source/Malterlib.doxygen"->MakeAbsolute()]
+			, ["--doxygen-tag-include", "Source/MalterlibTag.doxygen"->MakeAbsolute()]
+		]
 		{
 			&
 			{
@@ -149,7 +153,6 @@ Compile.PreprocessorDefines += "SQLITE_OMIT_LOAD_EXTENSION"
 	}
 }
 
-
 Target
 {
 	PreBuildScript +=	`@(Builtin.MToolExe) DiffCopy "@("Source/*.css"->MakeAbsolute())" "@(Target.OutputDirectory)" "" 0\n`\
@@ -160,7 +163,6 @@ Target
 	{
 		!!Documentation "Doxygen"
 	}
-
 }
 
 Property
